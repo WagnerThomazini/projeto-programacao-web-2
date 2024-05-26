@@ -5,13 +5,9 @@ A EconomizaAPI, desenvolvida com *Spring Boot* e a ferramenta *Maven*, é uma so
 
 Esta aplicação foi desenvolvida no programa Santander Coders, uma parceria da Ada Tech com o Banco Santander.
 
-        Professor: Anderson Vieira
-        Desenvolvedores:
-            Bruno Samuel da Silva;
-            Fabiola Santana dos Santos;
-            Rafael Luis Maia;
-            Rafael Santos Isidro; e
-            Wagner Costa Thomazini.
-        Turma: Santander Coders 2023 | 2º Semestre - Java (1)|#1111
-        Data: 29 de abril de 2024.""");
+            Professor: Igor Santos Mascarenhas
+    Desenvolvedor(a):
+        Wagner Costa Thomazini            
+    Turma: Santander Coders 2023 | 2º Semestre - Java (1)|#1111
+    Data: 26 de maio de 2024.
 
