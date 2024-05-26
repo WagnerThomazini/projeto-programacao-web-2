@@ -42,4 +42,18 @@ public class Pessoa {
         return id != null ? id.hashCode() : 0;
     }
 
+    public void addListaCompra(ListaCompra listaCompra) {
+        listaCompra.setPessoa(this);
+        this.listasCompra.add(listaCompra);
+    }
+
+    public void removeListaCompra(ListaCompra listaCompra) {
+        listaCompra.setPessoa(null);
+        this.listasCompra.remove(listaCompra);
+    }
+    @Override
+    public String toString() {
+        return "Pessoa(id=" + id + ", nome=" + nome + ", localizacao=Localizacao(id=" + localizacao.getId() + "), custoPorDistancia=" + custoPorDistancia + ")";
+    }
+
 }

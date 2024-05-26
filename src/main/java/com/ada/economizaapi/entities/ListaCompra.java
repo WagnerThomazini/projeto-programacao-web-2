@@ -18,6 +18,7 @@ public class ListaCompra {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String nome;
     @ManyToOne
     @JoinColumn(name = "pessoa_id")
     private Pessoa pessoa;
@@ -28,6 +29,28 @@ public class ListaCompra {
             inverseJoinColumns = @JoinColumn(name = "produto_id")
     )
     private List<Produto> produtos = new ArrayList<>();
+
+    public Mercado mercadoMaisEconomico(List<Mercado> mercados) {
+        Mercado mercadoMaisBarato = null;
+        double menorValor = Double.MAX_VALUE;
+
+        for (Mercado mercado : mercados) {
+            double valorTotal = 0;
+            boolean hasPrice = false;
+            for (Produto produto : produtos) {
+                ProdutoPreco produtoPreco = mercado.getProdutoPreco(produto);
+                if (produtoPreco != null && produtoPreco.getPreco() != null) {
+                    valorTotal += produtoPreco.getPreco();
+                    hasPrice = true;
+                }
+            }
+            if (hasPrice && valorTotal < menorValor) {
+                menorValor = valorTotal;
+                mercadoMaisBarato = mercado;
+            }
+        }
+        return mercadoMaisBarato;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -42,24 +65,6 @@ public class ListaCompra {
         return id != null ? id.hashCode() : 0;
     }
 
-    public Mercado mercadoMaisEconomico(List<Mercado> mercados){
-        Mercado mercadoMaisBarato = null;
-        double menorValor = Double.MAX_VALUE;
 
-        for(Mercado mercado : mercados){
-            double valorTotal = 0;
-            for(Produto produto : produtos){
-                ProdutoPreco produtoPreco = mercado.getProdutoPreco(produto);
-                if(produtoPreco != null){
-                    valorTotal += produtoPreco.getPreco();
-                }
-            }
-            if(valorTotal < menorValor){
-                menorValor = valorTotal;
-                mercadoMaisBarato = mercado;
-            }
-        }
-        return mercadoMaisBarato;
-    }
 }
 

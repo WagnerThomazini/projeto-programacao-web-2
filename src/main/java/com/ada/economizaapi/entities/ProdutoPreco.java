@@ -26,6 +26,13 @@ public class ProdutoPreco {
     private Double preco;
     private LocalDate dataAtualizacao;
 
+    public ProdutoPreco(Produto produto, double preco) {
+        this.produto = produto;
+        this.preco = preco;
+        this.dataAtualizacao = LocalDate.now();
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

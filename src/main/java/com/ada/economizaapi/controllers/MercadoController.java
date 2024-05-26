@@ -16,6 +16,10 @@ public class MercadoController {
     @Autowired
     MercadoService mercadoService;
 
+    public MercadoController() {
+    }
+
+
     @ResponseStatus(HttpStatus.OK)
     @GetMapping()
     public List<Mercado> findAll() {
