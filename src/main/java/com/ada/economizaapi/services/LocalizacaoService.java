@@ -1,10 +1,6 @@
 package com.ada.economizaapi.services;
 
 import com.ada.economizaapi.entities.Localizacao;
-import com.ada.economizaapi.services.responses.DistanceResponse;
-import com.ada.economizaapi.services.responses.Feature;
-import com.ada.economizaapi.services.responses.Properties;
-import com.ada.economizaapi.services.responses.Segment;
 import io.netty.handler.ssl.SslContext;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;

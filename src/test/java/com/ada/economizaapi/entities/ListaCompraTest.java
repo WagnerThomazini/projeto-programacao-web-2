@@ -87,4 +87,51 @@ class ListaCompraTest {
 
         assertEquals(mercado1, listaCompra.mercadoMaisEconomico(mercados));
     }
+
+    @Test
+    void testeConstrutorComParametros() {
+        Pessoa pessoa = new Pessoa();
+        String nome = "Lista de Compras";
+        List<Produto> produtos = new ArrayList<>();
+        Long id = 1L; // Add this line
+        ListaCompra listaCompra = new ListaCompra(id, nome, pessoa, produtos);
+        assertEquals(nome, listaCompra.getNome());
+        assertEquals(pessoa, listaCompra.getPessoa());
+        assertEquals(produtos, listaCompra.getProdutos());
+    }
+
+    @Test
+    void testeIgualdadeComObjetosDiferentes() {
+        ListaCompra listaCompra1 = new ListaCompra();
+        ListaCompra listaCompra2 = new ListaCompra();
+        listaCompra2.setId(1L);
+        assertNotEquals(listaCompra1, listaCompra2);
+    }
+
+    @Test
+    void testeHashCodeComObjetosDiferentes() {
+        ListaCompra listaCompra1 = new ListaCompra();
+        ListaCompra listaCompra2 = new ListaCompra();
+        listaCompra2.setId(1L);
+        assertNotEquals(listaCompra1.hashCode(), listaCompra2.hashCode());
+    }
+
+    @Test
+    void testeMercadoMaisEconomicoComPrecosNulos() {
+        ListaCompra listaCompra = new ListaCompra();
+        Produto produto1 = mock(Produto.class);
+        Produto produto2 = mock(Produto.class);
+        listaCompra.getProdutos().add(produto1);
+        listaCompra.getProdutos().add(produto2);
+
+        List<Mercado> mercados = new ArrayList<>();
+        Mercado mercado1 = mock(Mercado.class);
+        Mercado mercado2 = mock(Mercado.class);
+        when(mercado1.getProdutoPreco(produto1)).thenReturn(null);
+        when(mercado2.getProdutoPreco(produto2)).thenReturn(null);
+        mercados.add(mercado1);
+        mercados.add(mercado2);
+
+        assertNull(listaCompra.mercadoMaisEconomico(mercados));
+    }
 }

@@ -1,4 +1,4 @@
-package com.ada.economizaapi.services.responses;
+package com.ada.economizaapi.services;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import lombok.Data;

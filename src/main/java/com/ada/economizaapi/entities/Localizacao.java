@@ -22,10 +22,9 @@ public class Localizacao {
     @NotBlank(message = "A coordenada não pode estar em branco")
     private String coordenadas;
 
-    public Localizacao(String coordenadas) {
-        this.coordenadas = coordenadas;
-    }
 
+    public Localizacao(String coordenadas) {
+        this.coordenadas = coordenadas;    }
 
   
     @Override

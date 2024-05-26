@@ -1,4 +1,4 @@
-package com.ada.economizaapi.services.responses;
+package com.ada.economizaapi.services;
 
 public class DistanceResponse {
     private Feature[] features;

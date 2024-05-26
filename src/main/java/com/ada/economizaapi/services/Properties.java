@@ -1,4 +1,4 @@
-package com.ada.economizaapi.services.responses;
+package com.ada.economizaapi.services;
 
 public class Properties {
     private Segment[] segments;

@@ -13,36 +13,41 @@ import java.util.Optional;
 @RequestMapping("/produto")
 public class ProdutoController {
 
+    private final ProdutoService produtoService;
+
     @Autowired
-    ProdutoService produtoService;
+    public ProdutoController(ProdutoService produtoService) {
+        this.produtoService = produtoService;
+    }
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping()
     public List<Produto> findAll() {
-            return produtoService.findAll();
+        return produtoService.findAll();
     }
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{id}")
-    public Optional<Produto> findById(@PathVariable Long id) {
-            return produtoService.findById(id);
+    public Optional<Produto> findById(@PathVariable String id) {
+        Long productId = Long.parseLong(id);
+        return produtoService.findById(productId);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping()
     public Produto post(@RequestBody Produto produto) {
-            return produtoService.save(produto);
+        return produtoService.save(produto);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @PutMapping("/{id}")
     public Produto update(@PathVariable Long id, @RequestBody Produto produto) {
-            return produtoService.update(id, produto);
+        return produtoService.update(id, produto);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
-            produtoService.deleteById(id);
+        produtoService.deleteById(id);
     }
 }

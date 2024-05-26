@@ -33,6 +33,9 @@ public class Produto {
         this.descricao = descricao;
     }
 
+    public Produto(String s, double v) {
+    }
+
     public void addProdutoPreco(ProdutoPreco produtoPreco) {
         this.produtoPrecos.add(produtoPreco);
         produtoPreco.setProduto(this);
